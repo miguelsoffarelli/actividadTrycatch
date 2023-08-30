@@ -25,9 +25,12 @@ function showData(dataArray){
 
 //Solicitud fetch
 async function getJson () {
-	const response = await fetch(url);
+	try { const response = await fetch(url);
 	const data = await response.json();
-	showData(data);
+	showData(data); }
+	catch {
+	resultado.innerHTML = `<h3 class="bg-danger text-white">Categoría desconocida</h3>`;	
+	}
 }
 
 //Error:
